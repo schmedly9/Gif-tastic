@@ -29,6 +29,7 @@ $('#addGif').on('click', function() {
     }
 });
 
+
 renderButtons();
 
 
