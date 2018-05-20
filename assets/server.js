@@ -1,4 +1,4 @@
-var topics = ['books', 'nature', 'swimming', 'space'];
+var topics = ['boats', 'nature', 'swimming', 'cats'];
 
 function renderButtons() {
     $('#addButton').empty();
@@ -39,13 +39,13 @@ function addGif() {
 
         $.ajax({ url: queryURL, method: 'GET' })
             .done(function(response) {
-                var results = response.d
+                var results = response.data;
                 //console.log(response);
 
                 for (let i = 0; i < results.length; i++) {
                     
                     var gifDiv = $('<div class="item">');
-                    var rating = results.rating;
+                    var rating = results[i].rating;
                     var p = $('<p>').text("Rating: " + rating);
 
                     var giphyImg = $('<img>');
