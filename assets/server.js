@@ -1,3 +1,4 @@
+// topics fill preselected button catagorys
 var topics = ['boats', 'nature', 'swimming', 'cats'];
 
 function renderButtons() {
@@ -16,14 +17,14 @@ function renderButtons() {
     addGif();
 
 };
-
+// allows user to input catagory selection
 $('#addGif').on('click', function() {
     var userInput = $('#gif-input').val().trim();
-    console.log($('#gif-input'));
+    //console.log($('#gif-input'));
     topics.push(userInput);
     renderButtons();
     return false;
-    
+    // show input value and removes white space
     if (userInput === ' ') {
         $('#gif-input').val().trim();
     }
@@ -32,23 +33,24 @@ $('#addGif').on('click', function() {
 
 renderButtons();
 
-
+      //  takes user input from above and adds it to search perameters
 function addGif() {
     $('button').on('click', function() {
         var p = $(this).data('name');
         var queryURL = "https://api.giphy.com/v1/gifs/search?q="+"p"+"&api_key=QbXwW8Bhh9LKyavC78mxT8EEa7vk6nUD&limit=10";
-
+      
+        // gets the response from Giphy
         $.ajax({ url: queryURL, method: 'GET' })
             .done(function(response) {
                 var results = response.data;
                 //console.log(response);
 
                 for (let i = 0; i < results.length; i++) {
-                    
+                 // add rating to results   
                     var gifDiv = $('<div class="item">');
                     var rating = results[i].rating;
                     var p = $('<p>').text("Rating: " + rating);
-
+                 // sort result attributes
                     var giphyImg = $('<img>');
                     giphyImg.attr('src', results[i].images.fixed_height_still.url);
                     giphyImg.attr('data-still', results[i].images.fixed_height_still.url);
@@ -57,13 +59,14 @@ function addGif() {
 
                     gifDiv.append(giphyImg)
                     gifDiv.append(p)
-
+                 // places Gifs on page
                     $('#gifsAppearHere').prepend(gifDiv);
 
             
 
                 $('.item').children('img').on('click', function() {
 
+                   // adds functionality to Gif if avalable
 
                     var state = $(this).attr('data-state');
 
