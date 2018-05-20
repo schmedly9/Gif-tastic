@@ -7,7 +7,7 @@ function renderButtons() {
 
 
         var button = $('<button>');
-        button.addClass('topic');
+        button.addClass('topics');
         button.attr('data-name', topics[i]);
         button.text(topics[i]);
         $('#addButton').append(button);
@@ -35,14 +35,14 @@ renderButtons();
 function addGif() {
     $('button').on('click', function() {
         var p = $(this).data('name');
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=fish&api_key=QbXwW8Bhh9LKyavC78mxT8EEa7vk6nUD";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q="+"p"+"&api_key=QbXwW8Bhh9LKyavC78mxT8EEa7vk6nUD&limit=5";
 
         $.ajax({ url: queryURL, method: 'GET' })
             .done(function(response) {
-                var results = response.data;
-                console.log(response);
+                var results = response.d
+                //console.log(response);
 
-                for (var i = 0; i < results.length; i++) {
+                for (let i = 0; i < results.length; i++) {
                     
                     var gifDiv = $('<div class="item">');
                     var rating = results[i].rating;
@@ -59,7 +59,7 @@ function addGif() {
 
                     $('#gifsAppearHere').prepend(gifDiv);
 
-                }
+                
 
                 $('.item').children('img').on('click', function() {
 
@@ -75,5 +75,5 @@ function addGif() {
                     }
 
                 });
-            });
+            }});
     })};
