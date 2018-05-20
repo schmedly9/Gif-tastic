@@ -3,7 +3,7 @@ var topics = ['books', 'nature', 'swimming', 'space'];
 function renderButtons() {
     $('#addButton').empty();
     //for loop that iterates through array and creates button
-    for (var i = 0; i < topics.length; i++) {
+    for (let i = 0; i < topics.length; i++) {
 
 
         var button = $('<button>');
@@ -35,7 +35,7 @@ renderButtons();
 function addGif() {
     $('button').on('click', function() {
         var p = $(this).data('name');
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q="+"p"+"&api_key=QbXwW8Bhh9LKyavC78mxT8EEa7vk6nUD&limit=5";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q="+"p"+"&api_key=QbXwW8Bhh9LKyavC78mxT8EEa7vk6nUD&limit=10";
 
         $.ajax({ url: queryURL, method: 'GET' })
             .done(function(response) {
@@ -45,7 +45,7 @@ function addGif() {
                 for (let i = 0; i < results.length; i++) {
                     
                     var gifDiv = $('<div class="item">');
-                    var rating = results[i].rating;
+                    var rating = results.rating;
                     var p = $('<p>').text("Rating: " + rating);
 
                     var giphyImg = $('<img>');
@@ -59,7 +59,7 @@ function addGif() {
 
                     $('#gifsAppearHere').prepend(gifDiv);
 
-                
+            
 
                 $('.item').children('img').on('click', function() {
 

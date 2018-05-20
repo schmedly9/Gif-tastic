@@ -1,9 +1,10 @@
 /*top text styling*/
 
 .panel .name {
+    background-color: #f3ebf5;
     font-family: 'Bungee', cursive;
-    font-size: 48px;
-    color: #ed64e8;
+    font-size: 58px;
+    color: #55d3ab;
 }
 
 .panel {
@@ -15,7 +16,7 @@
 #addButton {
     margin-left: auto;
     margin-right: auto;
-    margin: 10px;
+    margin: 30px;
     background-color: white;
 }
 
@@ -54,6 +55,7 @@ form {
 }
 
 #gif-input {
+    box-sizing: 185px, 25px;
     margin: 2%;
 }
 
@@ -65,9 +67,9 @@ label {
     text-align: center;
     font-family: 'Gloria Hallelujah', cursive;
     padding: 3%;
-    border: 3px solid black;
+    border: 2px solid black;
     border-radius: 50%;
-    background-color: green;
+    background-color: #55d3ab;
     color: white;
 }
 
@@ -78,7 +80,7 @@ label {
 }
 
 .jumbotron img {
-    text-align: center;
+    text-align: left;
     margin-left: auto;
     margin-right: auto;
     display: block;
